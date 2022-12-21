@@ -31,38 +31,53 @@ const playListSchema = new mongoose.Schema({
 const Playlist = new mongoose.model("Playlist",playListSchema)
 
 //document
-async function createDocument(){
-    try{
-        const reactPlaylist = new Playlist({
-            name:"Node.js",
-            type:"Backend",
-            videos:60,
-            author:"divyanshi",
-            active:true
-        })
-        const jsPlaylist = new Playlist({
-            name:"javascript",
-            type:"full Stack",
-            videos:100,
-            author:"divyanshi",
-            active:true
-        })
+// async function createDocument(){
+//     try{
+//         const reactPlaylist = new Playlist({
+//             name:"Node.js",
+//             type:"Backend",
+//             videos:60,
+//             author:"divyanshi",
+//             active:true
+//         })
+//         const jsPlaylist = new Playlist({
+//             name:"javascript",
+//             type:"full Stack",
+//             videos:100,
+//             author:"divyanshi",
+//             active:true
+//         })
 
-        const mongodbPlaylist = new Playlist({
-            name:"mongoDB",
-            type:"backend",
-            videos:70,
-            author:"divyanshi",
-            active:true
-        })
-        // const result = await reactPlaylist.save()
-        const result = await Playlist.insertMany([jsPlaylist,reactPlaylist,mongodbPlaylist])
-        console.log(result)
-    }catch(error){
-        console.log("error", error.message);
-    }
+//         const mongodbPlaylist = new Playlist({
+//             name:"mongoDB",
+//             type:"backend",
+//             videos:70,
+//             author:"divyanshi",
+//             active:true
+//         })
+//         // const result = await reactPlaylist.save()
+//         const result = await Playlist.insertMany([jsPlaylist,reactPlaylist,mongodbPlaylist])
+//         console.log(result)
+//     }catch(error){
+//         console.log("error", error.message);
+//     }
     
+// }
+
+// createDocument()
+
+
+async function getDocument(){
+    try{
+        // let result = await Playlist.findOne({author:"divyanshi"});
+        // let result = await Playlist.find({author:"divyanshi"}).select({name:1,_id:0}).limit(1).skip(1);
+        console.log(result)
+
+    }catch(err){
+        console.log("error",err)
+    }
+  
+
 }
 
-createDocument()
-
+getDocument()
