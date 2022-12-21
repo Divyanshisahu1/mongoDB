@@ -2,33 +2,33 @@ const mongoose = require("mongoose");
 const { platform } = require("process");
 
 mongoose.set('strictQuery', true);
-mongoose.connect("mongodb://localhost:27017/techincal",(err)=>{
-    if(err){
+mongoose.connect("mongodb://localhost:27017/techincal", (err) => {
+    if (err) {
         console.log("error while connecting", err)
     }
-    else{
+    else {
         console.log("connected to db")
     }
 })
 
 
 const playListSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+    name: {
+        type: String,
+        required: true
     },
-    ctype:String,
-    videos:Number,
-    author:String,
-    active:Boolean,
-    date:{
-        type:Date,
-        default:Date.now()
+    ctype: String,
+    videos: Number,
+    author: String,
+    active: Boolean,
+    date: {
+        type: Date,
+        default: Date.now()
     }
 })
 
 //collection
-const Playlist = new mongoose.model("Playlist",playListSchema)
+const Playlist = new mongoose.model("Playlist", playListSchema)
 
 //document
 // async function createDocument(){
@@ -61,14 +61,14 @@ const Playlist = new mongoose.model("Playlist",playListSchema)
 //     }catch(error){
 //         console.log("error", error.message);
 //     }
-    
+
 // }
 
 // createDocument()
 
 
-async function getDocument(){
-    try{
+async function getDocument() {
+    try {
         // let result = await Playlist.findOne({author:"divyanshi"});
         // let result = await Playlist.find({author:"divyanshi"}).select({name:1,_id:0}).limit(1).skip(1);
 
@@ -88,16 +88,52 @@ async function getDocument(){
 
         // let result = await Playlist.find({author:"divyanshi"}).select({name:1}).countDocuments()
         // let result = await Playlist.find({author:"divyanshi"}).select({name:1}).sort({name:1}) //desc
-        let result = await Playlist.find({author:"divyanshi"}).select({name:1}).sort({name:-1})
+        let result = await Playlist.find({ author: "divyanshi" }).select({ name: 1 }).sort({ name: -1 })
 
 
         console.log(result)
 
-    }catch(err){
-        console.log("error",err)
+    } catch (err) {
+        console.log("error", err)
     }
-  
+
 
 }
 
-getDocument()
+// getDocument()
+
+async function updateDocument(_id) {
+    // let result = await Playlist.updateOne({_id},{
+    //     $set:{
+    //         name:"Javascript"
+    //     }
+    // }) 
+
+    //--> return object(old value)
+
+    //     let result = await Playlist.findByIdAndUpdate({_id},{
+    //         $set:{
+    //             name:"Javascript Thapa"
+    //         }
+    //     },{
+    //             useFindAndModify:false
+    //         }
+    //     )
+
+    let result = await Playlist.findByIdAndUpdate({_id},{
+                $set:{
+                    name:"Javascript Thapa tech"
+                }
+            },{     new:true,
+                    useFindAndModify:false
+                }
+            )
+        console.log(result)
+
+    }
+
+    updateDocument("63a2e12038229a25f6388182")
+
+
+
+    
