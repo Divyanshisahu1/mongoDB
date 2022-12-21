@@ -71,6 +71,10 @@ async function getDocument(){
     try{
         // let result = await Playlist.findOne({author:"divyanshi"});
         // let result = await Playlist.find({author:"divyanshi"}).select({name:1,_id:0}).limit(1).skip(1);
+        // let result = await Playlist.find({videos:{$gte:50}})
+        // let result = await Playlist.find({videos:{$lte:70}})
+        let result = await Playlist.find({name:{$in:["Node.js","mongoDB"]}})
+
         console.log(result)
 
     }catch(err){
