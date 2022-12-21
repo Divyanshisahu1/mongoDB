@@ -83,7 +83,12 @@ async function getDocument(){
         //  let result = await Playlist.find({$and:[{name:"mongoDB"},{videos:70}]})
         // let result = await Playlist.find({$nor:[{name:"Node.js"},{name:"mongoDB"}]})
         // let result = await Playlist.find({videos:{$not:{$gt:70}}})
-       
+
+        //count & sort
+
+        // let result = await Playlist.find({author:"divyanshi"}).select({name:1}).countDocuments()
+        // let result = await Playlist.find({author:"divyanshi"}).select({name:1}).sort({name:1}) //desc
+        let result = await Playlist.find({author:"divyanshi"}).select({name:1}).sort({name:-1})
 
 
         console.log(result)
