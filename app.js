@@ -132,8 +132,14 @@ async function updateDocument(_id) {
 
     }
 
-    updateDocument("63a2e12038229a25f6388182")
+    // updateDocument("63a2e12038229a25f6388182")
 
 
+async function deleteDocument(_id){
+    // let result = await Playlist.deleteOne({_id})
+    let result = await Playlist.findByIdAndDelete({_id})
+    console.log(result)
+}
 
-    
+deleteDocument("63a2e12038229a25f6388183")
+
