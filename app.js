@@ -71,9 +71,20 @@ async function getDocument(){
     try{
         // let result = await Playlist.findOne({author:"divyanshi"});
         // let result = await Playlist.find({author:"divyanshi"}).select({name:1,_id:0}).limit(1).skip(1);
+
+        //---->comparison
         // let result = await Playlist.find({videos:{$gte:50}})
         // let result = await Playlist.find({videos:{$lte:70}})
-        let result = await Playlist.find({name:{$in:["Node.js","mongoDB"]}})
+        // let result = await Playlist.find({name:{$in:["Node.js","mongoDB"]}})
+
+        //---->logical operator
+
+        // let result = await Playlist.find({$or:[{name:"mongoDB"},{name:"Node.js"}]})
+        //  let result = await Playlist.find({$and:[{name:"mongoDB"},{videos:70}]})
+        // let result = await Playlist.find({$nor:[{name:"Node.js"},{name:"mongoDB"}]})
+        // let result = await Playlist.find({videos:{$not:{$gt:70}}})
+       
+
 
         console.log(result)
 
